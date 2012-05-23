@@ -1,0 +1,8 @@
+<% unless @miniposts.empty? %>
+  <div id="postcontainer">
+    <ul class="miniposts" id="miniposts">
+      <%= render :partial => 'shared/feed_item', :collection => @miniposts %>
+    </ul>
+    <%= will_paginate @miniposts %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<header>
+  <%= link_to logo, root_path %> 
+  <nav class="round">
+    <ul>
+      <% if signed_in? %>
+        <li><%= render 'search/search' %><li>
+        <li><%= link_to "Users", users_path, :class => "header_button round" %></li>
+        <li><%= link_to "Profile", current_user, :class => "header_button round" %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user), :class => "header_button round" %></li>
+        <li><%= link_to "Sign Out", signout_path, :method => :delete, :class => "header_button round" %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", signup_path, :class => "header_button signup round" %></li>
+        <li><%= link_to "Sign In", signin_path, :class => "header_button round" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

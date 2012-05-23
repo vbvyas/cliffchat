@@ -1,0 +1,26 @@
+<!-- Following DRY principle currently using _feed_item.html.erb for rendering posts -->
+<li class="minipost">
+  <span class="content"><%= wrap(minipost.content) %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(minipost.created_at) %> ago.
+  </span>
+  <span class="numresponses">
+    <% unless minipost.responses.empty? %>
+      <%= pluralize(minipost.responses.count, "response") %>
+    <% end %>
+  </span>
+  <% if current_user?(minipost.user) %>
+    <span class="delete">
+      <%= link_to "Delete", minipost,
+        :method => :delete,
+        :confirm => "Are you sure?",
+        :title => minipost.content %>
+    </span>
+  <% end %>
+</li>
+<% unless minipost.responses.empty? %>
+  <%= render :partial => 'responses/response', :collection => minipost.responses %>
+<% end %>
+<li class="minipost">
+<%= render 'shared/response_form', :minipost => minipost %>
+</li>

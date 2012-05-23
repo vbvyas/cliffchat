@@ -1,0 +1,23 @@
+<table class="profile" summary="Profile Information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <% unless @user.miniposts.empty? %>
+        <div id="postcontainer">
+          <ul class="miniposts" id="miniposts" summary="User posts">
+            <%= render :partial => 'shared/feed_item', :collection => @miniposts %>
+          </ul>
+          <%= will_paginate @miniposts %>
+        </div>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= link_to @user.name, @user %>
+      <strong>Posts</strong> <%= @user.miniposts.count %>
+      <strong>Responses</strong> <%= @user.responses.count %>
+    </td>
+  </tr>
+</table>

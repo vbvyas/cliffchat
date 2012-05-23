@@ -1,0 +1,12 @@
+<li class="minipost">
+<%= form_for @response do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <%= f.hidden_field :minipost_id, {:value => minipost.id} %>
+    <div class="field">
+      <%= f.text_area :content %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Respond" %>
+    </div>
+  <% end %>
+</li>
