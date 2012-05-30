@@ -25,7 +25,7 @@ describe MinipostsController do
     describe "failure" do
 
       before(:each) do
-        @attr = { :content => "" }
+        @attr = { :content => "", :topics => "" }
       end
 
       it "should not create a minipost" do
@@ -43,7 +43,7 @@ describe MinipostsController do
     describe "success" do
 
       before(:each) do
-        @attr = { :content => "Loerm ipsum" }
+        @attr = { :content => "Loerm ipsum", :topics => "topic tag" }
       end
 
       it "should create a minipost" do

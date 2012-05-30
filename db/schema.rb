@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411062201) do
+ActiveRecord::Schema.define(:version => 20120529061137) do
 
   create_table "affiliations", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20120411062201) do
 
   add_index "miniposts", ["user_id", "created_at"], :name => "index_miniposts_on_user_id_and_created_at"
 
+  create_table "miniposts_topics", :force => true do |t|
+    t.integer  "minipost_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "miniposts_topics", ["minipost_id", "topic_id"], :name => "index_miniposts_topics_on_minipost_id_and_topic_id", :unique => true
+  add_index "miniposts_topics", ["minipost_id"], :name => "index_miniposts_topics_on_minipost_id"
+  add_index "miniposts_topics", ["topic_id"], :name => "index_miniposts_topics_on_topic_id"
+
   create_table "responses", :force => true do |t|
     t.string   "content"
     t.integer  "minipost_id"
@@ -41,6 +52,14 @@ ActiveRecord::Schema.define(:version => 20120411062201) do
 
   add_index "responses", ["minipost_id", "created_at"], :name => "index_responses_on_minipost_id_and_created_at"
   add_index "responses", ["user_id", "created_at"], :name => "index_responses_on_user_id_and_created_at"
+
+  create_table "topics", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topics", ["name"], :name => "index_topics_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "name"

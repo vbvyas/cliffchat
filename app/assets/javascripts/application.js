@@ -7,3 +7,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(
+  function() {
+  $("form input:text,form input:password").each(function() {
+    $(this).focus(function () {
+      $(this).css({"background-color" : "#FFFFFF", "border-style" : "solid", "border-color" : "#3399FF"});
+    $(this).blur(function () {
+      $(this).css({"background-color" : "#EEEEEE", "border-style" : "solid", "border-color" : "#C0C0C0"});
+    });
+  });
+    });
+  $('#minipost_content').focus(function() {
+    $('#minipost_char_count').text((150 - $('#minipost_content').val().length) + " characters left");
+    });
+  $('#minipost_content').keydown(function() {
+    $('#minipost_char_count').text((150 - $('#minipost_content').val().length) + " characters left");
+    });
+  });

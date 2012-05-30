@@ -18,6 +18,7 @@ describe "Miniposts" do
         lambda do
           visit root_path
           fill_in :minipost_content, :with => ""
+          fill_in :minipost_topics, :with => "topic tags values"
           click_button "Submit"
           response.should render_template('pages/home')
           response.should have_selector("div#error_explanation")
@@ -32,6 +33,7 @@ describe "Miniposts" do
         lambda do
           visit root_path
           fill_in :minipost_content, :with => content
+          fill_in :minipost_topics, :with => "topic tags values"
           click_button "Submit"
           response.should have_selector("span.content", :content => content)
         end.should change(Minipost, :count).by(1)

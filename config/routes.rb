@@ -4,6 +4,7 @@ Closefeed::Application.routes.draw do
   resources :miniposts, :only => [:create, :destroy]
   resources :responses, :only => [:create, :destroy]
   resources :search, :only => [:new]
+  resources :topics
 
   match '/search', :to => 'pages#home'
   match '/searchresult', :to => 'search#new'

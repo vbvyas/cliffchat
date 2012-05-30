@@ -5,6 +5,7 @@ class Minipost < ActiveRecord::Base
   belongs_to :affiliation
 
   has_many :responses
+  has_and_belongs_to_many :topics
 
   validates :content, :presence => true, :length => { :maximum => 150 }
   validates :user_id, :presence => true

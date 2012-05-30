@@ -24,10 +24,17 @@ namespace :db do
                    :affiliation_id => 1)
     end
 
+    topics = %w[software tools web ubuntu tv web school course design code algo]
     50.times do
       User.all(:limit => 6).each do |user|
         m = user.miniposts.build(:content => Faker::Lorem.sentence(5))
         m.affiliation_id = user.affiliation_id
+        ts = topics.shuffle[0..4]
+        ts.each do |t|
+          t.downcase!
+          tp = Topic.find_by_name(t) || Topic.create(:name => t)
+          m.topics << tp unless m.topics.include?(tp)
+        end
         m.save
       end
     end

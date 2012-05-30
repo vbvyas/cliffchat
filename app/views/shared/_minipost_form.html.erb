@@ -3,7 +3,13 @@
   <div class="field">
     <%= f.text_area :content %>
   </div>
-  <p id="minipost_char_count"></p>
+  <div class="field">
+    <%= label :minipost, :topics, "Add topics separated by space (optional)" %><br />
+    <%= text_field :minipost, :topics, :value => ""  %>
+  </div>
+  <div>
+    <p id="minipost_char_count"></p>
+  </div>
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>

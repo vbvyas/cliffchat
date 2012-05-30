@@ -21,6 +21,12 @@
               :title => feed_item.content %>
           </span>
         <% end %>
+        <% unless feed_item.topics.nil? %>
+          <br />
+          <% feed_item.topics.each do |t| %>
+            <%= link_to t.name, t %>
+          <% end %>
+        <% end %>
       </li>
     </li>
       <% unless feed_item.responses.empty? %>

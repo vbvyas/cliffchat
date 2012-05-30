@@ -1,5 +1,5 @@
 class Affiliation < ActiveRecord::Base
-  attr_accessible :id, :name
+  attr_accessible :name
 
   has_many :users
   has_many :miniposts

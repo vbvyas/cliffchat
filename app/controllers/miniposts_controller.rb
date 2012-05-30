@@ -5,6 +5,12 @@ class MinipostsController < ApplicationController
   def create
     @minipost = current_user.miniposts.build(params[:minipost])
     @minipost.affiliation_id = current_user.affiliation_id
+    topics = params[:minipost][:topics].split
+    topics.each do |t|
+      t.downcase!
+      topic = Topic.find_by_name(t) || Topic.create(:name => t)
+      @minipost.topics << topic unless @minipost.topics.include?(topic)
+    end
     if @minipost.save
       flash[:success] = "Post Created!"
       redirect_to root_path

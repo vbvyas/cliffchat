@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   
   def new
-    keywords = params[:search][:text].to_s.split
+    keywords = params[:search][:text].split
     miniposts = []
     responses = []
     keywords.each do |k|
