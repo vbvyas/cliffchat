@@ -1,0 +1,18 @@
+<div style="background: #663333; border-radius: 17px; padding: 20px; width: 360px">
+	<span style="color: grey">New? Sign up for closefeed:</span>
+	<%= form_for(:user) do |f| %>
+	<div class="field">
+		<%= f.text_field :name,:value => "full name",:class => "hintTextbox",:size => "33"%>
+	</div>
+	<div class="field">
+		<%= f.text_field :email,:value => "email address",:class => "hintTextbox",:size => "33"%>
+	</div>
+	<div class="field">
+		<%= f.password_field :password,:value => "password",:class => "hintTextbox",:size => "33"%>
+	</div>
+	<!-- TODO figure out how to wire properly & add affiliation drop down-->	
+	<div class="actions">
+		<%= f.submit "Sign up" %>
+	</div>
+	<% end %>
+</div>
