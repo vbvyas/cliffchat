@@ -291,7 +291,7 @@ div.user_info img {
 }
 
 div.user_info a {
-  text-decoration: none:
+  text-decoration: none;
 }
 
 div.user_info span.user_name {
@@ -342,3 +342,6 @@ form.new_response textarea {
 form.search {
   width: 400px;
 }
+
+INPUT.hintTextbox       { color: #888; }
+INPUT.hintTextboxActive { color: #000; }
