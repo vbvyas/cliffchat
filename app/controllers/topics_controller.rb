@@ -9,4 +9,8 @@ class TopicsController < ApplicationController
     @title = @topic.name
     @response = Response.new
   end
+
+  def index
+    @topics = Topic.all
+  end
 end

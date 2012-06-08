@@ -4,6 +4,7 @@
     <ul>
       <% if signed_in? %>
         <li><%= render 'search/search' %><li>
+        <li><%= link_to "+ Post", new_minipost_path, :class => "header_button round" %></li>
         <li><%= link_to "Users", users_path, :class => "header_button round" %></li>
         <li><%= link_to "Profile", current_user, :class => "header_button round" %></li>
         <li><%= link_to "Settings", edit_user_path(current_user), :class => "header_button round" %></li>

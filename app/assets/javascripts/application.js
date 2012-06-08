@@ -24,3 +24,4 @@ $(document).ready(
     $('#minipost_char_count').text((150 - $('#minipost_content').val().length) + " characters left");
     });
   });
+

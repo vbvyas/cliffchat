@@ -4,9 +4,7 @@
     <title><%= @title %></title>
     <%= csrf_meta_tags %>
     <%= render 'layouts/stylesheets' %>
-    <%= javascript_include_tag :application %>
-    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
-    <%= javascript_include_tag "hint-textbox.js" %>
+    <%= render 'layouts/javascripts' %>
   </head>
   <body>
     <div class="container">

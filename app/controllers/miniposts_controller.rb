@@ -2,6 +2,10 @@ class MinipostsController < ApplicationController
   before_filter :authenticate
   before_filter :authorized_user, :only => :destroy
 
+  def new
+    @minipost = current_user.miniposts.new
+  end
+  
   def create
     @minipost = current_user.miniposts.build(params[:minipost])
     @minipost.affiliation_id = current_user.affiliation_id
@@ -31,4 +35,5 @@ class MinipostsController < ApplicationController
       @minipost = current_user.miniposts.find_by_id(params[:id])
       redirect_to root_path if @minipost.nil?
     end
+
 end

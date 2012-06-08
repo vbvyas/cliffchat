@@ -17,5 +17,5 @@
 </div>
 <div class="field">
   <%= f.label :affiliation_id, "Main affiliation" %><br />
-  <%= f.collection_select :affiliation_id, Affiliation.all, :id, :name %>
+  <%= f.collection_select :affiliation_id, Affiliation.all, :id, :name, :prompt => "Select Affiliation" %>
 </div>

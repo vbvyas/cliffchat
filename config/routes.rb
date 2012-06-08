@@ -1,7 +1,7 @@
 Closefeed::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :miniposts, :only => [:create, :destroy]
+  resources :miniposts, :only => [:new, :create, :destroy]
   resources :responses, :only => [:create, :destroy]
   resources :search, :only => [:new]
   resources :topics
