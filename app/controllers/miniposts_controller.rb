@@ -15,18 +15,29 @@ class MinipostsController < ApplicationController
       topic = Topic.find_by_name(t) || Topic.create(:name => t)
       @minipost.topics << topic unless @minipost.topics.include?(topic)
     end
-    if @minipost.save
-      flash[:success] = "Post Created!"
-      redirect_to root_path
-    else
-      @feed_items = [] 
-      render 'pages/home'
+
+    flash[:success] = "post created!" 
+    respond_to do |format|
+      if @minipost.save
+        @response = Response.new
+        format.html { redirect_to root_path }
+        format.js
+      else
+        format.html do
+          @feed_items = []
+          render 'pages/home' 
+        end
+        format.js
+      end
     end
   end
 
   def destroy
-    @minipost.destroy
-    redirect_back_or root_path
+    respond_to do |format|
+      @minipost.destroy
+      format.html { redirect_back_or root_path }
+      format.js
+    end
   end
 
   private

@@ -1,3 +1,4 @@
+<%= div_for(feed_item) do %>
 <li class="minipost">
     <ul id="feeditemlist">
       <li id="left">
@@ -18,7 +19,9 @@
             <%= link_to "Delete", feed_item,
               :method => :delete,
               :confirm => "Are you sure?",
-              :title => feed_item.content %>
+              :title => feed_item.content,
+              :remote => true
+            %>
           </span>
         <% end %>
         <% unless feed_item.topics.nil? %>
@@ -36,3 +39,4 @@
       <%= render 'shared/response_form', :minipost => feed_item %>
       </li>
     </ul>
+  <% end %>
