@@ -5,6 +5,9 @@ class SearchController < ApplicationController
     miniposts = []
     responses = []
     keywords.each do |k|
+      k.downcase!
+      topic = Topic.find_by_name(k)
+      miniposts += topic.miniposts unless topic.nil?
       miniposts += Minipost.where('content LIKE ?', "%#{k}%")
       responses += Response.select(:minipost_id).where('content LIKE ?', "%#{k}%")
     end
