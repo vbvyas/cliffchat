@@ -4,8 +4,9 @@
     <span class="user_name">
       <%= current_user.name %>
     </span>
+  </a>
     <span class="miniposts">
       <%= pluralize(current_user.miniposts.count, "post") %>
     </span>
-  </a>
+      <%= render 'shared/user_topics' %>
 </div>

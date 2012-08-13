@@ -198,4 +198,8 @@ describe User do
       end
     end
   end
+
+  describe "followership associations" do
+    it { should respond_to(:followerships) }
+  end
 end

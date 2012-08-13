@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   
   has_many :miniposts, :dependent => :destroy
   has_many :responses, :dependent => :destroy
+  has_many :followerships, foreign_key: "user_id", dependent: :destroy
+  has_many :topics, through: :followerships
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -49,7 +51,24 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Minipost.where("affiliation_id = ?", affiliation_id)
+    miniposts = []
+    topics.each do |t|
+      miniposts += t.miniposts
+    end
+    miniposts += Minipost.where("affiliation_id = ?", affiliation_id)
+    miniposts.uniq
+  end
+
+  def following?(topic)
+    followerships.find_by_topic_id(topic.id)
+  end
+
+  def follow!(topic)
+    followerships.create!(topic_id: topic.id)
+  end
+
+  def unfollow!(topic)
+    followerships.find_by_topic_id(topic.id).destroy
   end
 
   private

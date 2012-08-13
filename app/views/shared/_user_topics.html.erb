@@ -1,0 +1,8 @@
+<div class="topics">
+  Following: <%= pluralize(current_user.topics.count, "topic") %>
+  <ul>
+    <% current_user.topics.each do |topic| %>
+      <li><%= link_to topic.name, topic %></li>
+    <% end %>
+  </ul>
+</div>

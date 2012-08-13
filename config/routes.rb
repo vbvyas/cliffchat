@@ -1,10 +1,11 @@
 Closefeed::Application.routes.draw do
-  resources :users
+  resources :users 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :miniposts, :only => [:new, :create, :destroy]
   resources :responses, :only => [:create, :destroy]
   resources :search, :only => [:new]
   resources :topics
+  resources :followerships, only: [:create, :destroy]
 
   match '/search', :to => 'pages#home'
   match '/searchresult', :to => 'search#new'

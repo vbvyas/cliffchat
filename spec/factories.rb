@@ -25,6 +25,11 @@ Factory.define :minipost do |minipost|
   minipost.association :affiliation
 end
 
+Factory.define :topic do |topic|
+  topic.name "software"
+  topic.association :minipost
+end
+
 Factory.define :response do |response|
   response.content "Baz qux"
   response.association :user

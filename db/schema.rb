@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529061137) do
+ActiveRecord::Schema.define(:version => 20120813001253) do
 
   create_table "affiliations", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20120529061137) do
   end
 
   add_index "affiliations", ["name"], :name => "index_affiliations_on_name"
+
+  create_table "followerships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "followerships", ["topic_id"], :name => "index_followerships_on_topic_id"
+  add_index "followerships", ["user_id", "topic_id"], :name => "index_followerships_on_user_id_and_topic_id", :unique => true
+  add_index "followerships", ["user_id"], :name => "index_followerships_on_user_id"
 
   create_table "miniposts", :force => true do |t|
     t.string   "content"
@@ -60,6 +71,15 @@ ActiveRecord::Schema.define(:version => 20120529061137) do
   end
 
   add_index "topics", ["name"], :name => "index_topics_on_name"
+
+  create_table "topics_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
+  end
+
+  add_index "topics_users", ["topic_id"], :name => "index_users_topics_on_topic_id"
+  add_index "topics_users", ["user_id", "topic_id"], :name => "index_users_topics_on_user_id_and_topic_id", :unique => true
+  add_index "topics_users", ["user_id"], :name => "index_users_topics_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
