@@ -1,0 +1,5 @@
+<%= form_for(current_user.interests.find_by_followedpost_id(followedpost ||= @minipost),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Unfollow", class: "" %>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="stats">
+  Following: <br/>
+  <div class="posts_count">
+    <%= pluralize(current_user.followedposts.count, "post") %><br/>
+  </div>
+  <div class="topics_count">
+    <%= pluralize(current_user.topics.count, "topic") %>
+  </div>
+  <ul>
+    <% current_user.topics.each do |topic| %>
+      <li><%= link_to topic.name, topic %></li>
+    <% end %>
+  </ul>
+</div>

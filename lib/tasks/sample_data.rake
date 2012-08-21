@@ -6,6 +6,7 @@ namespace :db do
     make_miniposts
     make_responses
     make_followerships
+    make_interests
   end
 end
 
@@ -68,7 +69,18 @@ def make_followerships
     ts.each do |t|
       t.downcase!
       tp = Topic.find_by_name(t)
-      user.follow!(tp) unless tp.nil?
+      user.follow!(tp) unless tp.nil? or user.following?(tp)
+    end
+  end
+end
+
+def make_interests
+  users = User.all(:limit => 6)
+  users.each do |user|
+    user.miniposts(:limit => 5).each do |post|
+      users.reverse[0..4].each do |res_user|
+        res_user.followpost!(post) unless res_user.followingpost?(post)
+      end
     end
   end
 end

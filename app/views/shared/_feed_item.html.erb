@@ -24,6 +24,9 @@
             %>
           </span>
         <% end %>
+        <span>
+          <%= render(partial: 'miniposts/follow_form', locals: {minipost: feed_item}) if signed_in? %>
+        </span>
         <% unless feed_item.topics.nil? %>
           <br />
           <% feed_item.topics.each do |t| %>

@@ -1,0 +1,2 @@
+$("#<%= dom_id @minipost %>.followedpost_form").html("<%= escape_javascript(render(partial: 'miniposts/unfollow')) %>")
+$(".posts_count").html("<%= escape_javascript(pluralize(current_user.followedposts.count, "post")) %>")

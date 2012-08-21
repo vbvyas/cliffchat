@@ -1,0 +1,7 @@
+<%= div_for(minipost, :class => "followedpost_form") do %>
+  <% if current_user.followingpost?(minipost) %>
+    <%= render partial: 'miniposts/unfollow', locals: { followedpost: minipost } %>
+  <% else %>
+    <%= render partial: 'miniposts/follow', locals: { followedpost: minipost } %>
+  <% end %>
+<% end %>
