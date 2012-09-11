@@ -345,3 +345,44 @@ form.search {
 
 INPUT.hintTextbox       { color: #888; }
 INPUT.hintTextboxActive { color: #000; }
+
+/* parent menu */
+#menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#menu li {
+  float: left;
+  display: block;
+  position: relative;
+  z-index: 500;
+  margin: 0 1px;
+}
+
+#menu li a {
+  display: block;
+}
+
+/* submenu */
+#menu ul {
+  position: absolute;
+  left: 0;
+  display: none;
+  margin: 0 0 0 -1px;
+  padding: 0;
+  list-style: none;
+}
+
+#menu ul li {
+  width: 100px;
+  float: left;
+  /*border-top: 1px solid #FFF;*/
+}
+
+#menu ul a {
+  display: block;
+  height: 15px;
+  padding: 8px 5px;
+}

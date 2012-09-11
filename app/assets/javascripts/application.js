@@ -7,8 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$(document).ready(
-  function() {
+$(document).ready(function() {
   $("form input:text,form input:password").each(function() {
     $(this).focus(function () {
       $(this).css({"background-color" : "#FFFFFF", "border-style" : "solid", "border-color" : "#3399FF"});
@@ -23,5 +22,14 @@ $(document).ready(
   $('#minipost_content').keydown(function() {
     $('#minipost_char_count').text((150 - $('#minipost_content').val().length) + " characters left");
     });
-  });
+
+  $('#menu li').hover(
+    function () {
+      $('ul', this).stop().slideDown(100);
+    },
+    function () {
+      $('ul', this).stop().slideUp(100);
+    }
+  );
+});
 
