@@ -1,0 +1,54 @@
+<div id="postcontainer">
+  <ul>
+    <li>
+      <ul class="miniposts" id="miniposts" summary="User posts">
+        <%= div_for(@minipost) do %>
+          <li class="minipost">
+            <ul id="feeditemlist">
+              <li id="left">
+                <span id="gravatar">
+                  <%= link_to gravatar_for(@minipost.user), @minipost.user %>
+                </span>
+              </li>
+              <li id="right">
+                <span class="user">
+                  <%= link_to @minipost.user.name, @minipost.user %>
+                </span>
+                <span class="content"><%= wrap(@minipost.content) %></span>
+                <span class="timestamp">
+                  Posted <%= time_ago_in_words(@minipost.created_at) %> ago.
+                </span>
+                <% if current_user?(@minipost.user) %>
+                  <span class="delete">
+                    <%= link_to "Delete", @minipost,
+                      :method => :delete,
+                      :confirm => "Are you sure?",
+                      :title => @minipost.content,
+                      :remote => true
+                    %>
+                  </span>
+                <% end %>
+                <span>
+                  <%= render(partial: 'miniposts/follow_form',
+                             locals: {minipost: @minipost}) if signed_in? %>
+                </span>
+                <% unless @minipost.topics.nil? %>
+                  <br />
+                  <% @minipost.topics.each do |t| %>
+                    <%= link_to t.name, t %>
+                  <% end %>
+                <% end %>
+              </li>
+              <% unless @minipost.responses.empty? %>
+                <%= render :partial => 'responses/response',
+                  :collection => @minipost.responses %>
+              <% end %>
+            </ul>
+        <% end %>
+      </ul>
+    </li>
+    <li>
+      <%= render 'shared/response_form', :minipost => @minipost %>
+    </li>
+  </ul>
+</div>

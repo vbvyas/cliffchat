@@ -2,10 +2,12 @@
   <tr>
     <td class="main">
       <p><%= Affiliation.find(current_user.affiliation_id).name %> feed</p>
+      <!--
       <h4 class="minipost">Say something!</h4>
       <div id="minipost_form">
         <%= render 'shared/minipost_form' %>
       </div>
+      -->
       <%= render 'shared/feed' %>
     </td>
     <td class="sidebar round">

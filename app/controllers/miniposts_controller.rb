@@ -2,6 +2,11 @@ class MinipostsController < ApplicationController
   before_filter :authenticate
   before_filter :authorized_user, :only => :destroy
 
+  def show
+    @minipost = Minipost.find(params[:id])
+    @response = Response.new
+  end
+
   def new
     @minipost = current_user.miniposts.new
   end

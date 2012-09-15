@@ -35,11 +35,14 @@
         <% end %>
       </li>
     </li>
+    <li><%= link_to feed_item.responses.empty? ? "Respond" : pluralize(feed_item.responses.count, "response"), feed_item, locals: {minipost: feed_item} %></li>
+    <!--
       <% unless feed_item.responses.empty? %>
         <%= render :partial => 'responses/response', :collection => feed_item.responses %>
       <% end %>
       <li class="minipost">
       <%= render 'shared/response_form', :minipost => feed_item %>
       </li>
+      -->
     </ul>
   <% end %>
