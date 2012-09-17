@@ -7,6 +7,7 @@ namespace :db do
     make_responses
     make_followerships
     make_interests
+    make_votes
   end
 end
 
@@ -80,6 +81,19 @@ def make_interests
     user.miniposts(:limit => 5).each do |post|
       users.reverse[0..4].each do |res_user|
         res_user.followpost!(post) unless res_user.followingpost?(post)
+      end
+    end
+  end
+end
+
+def make_votes
+  users = User.all(:limit => 6)
+  users.each do |user|
+    user.miniposts(:limit => 5).each do |post|
+      post.responses(:limit => 4).each do |res|
+        users.reverse[0..4].each do |r_user|
+          r_user.voteresponse!(res) unless r_user.votedresponse?(res)
+        end
       end
     end
   end

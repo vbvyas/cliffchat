@@ -3,6 +3,8 @@ class Response < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :minipost
+  has_many :votes, foreign_key: "votedresponse_id", dependent: :destroy
+  has_many :users, through: :votes
 
   validates :content, :presence => true, :length => { :maximum => 150 }
   validates :user_id, :presence => true

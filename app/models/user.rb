@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   has_many :topics, through: :followerships
   has_many :interests, foreign_key: "user_id", dependent: :destroy
   has_many :followedposts, through: :interests
+  has_many :votes, foreign_key: "user_id", dependent: :destroy
+  has_many :votedresponses, through: :votes
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -83,6 +85,14 @@ class User < ActiveRecord::Base
 
   def unfollowpost!(minipost)
     interests.find_by_followedpost_id(minipost.id).destroy
+  end
+
+  def votedresponse?(response)
+    votes.find_by_votedresponse_id(response.id)
+  end
+
+  def voteresponse!(response)
+    votes.create!(votedresponse_id: response.id)
   end
 
   private

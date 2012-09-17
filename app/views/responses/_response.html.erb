@@ -19,6 +19,14 @@
           :title => response.content %>
       </span>
     <% end %>
+    <span>
+      <%= div_for(response, class: "votedresponse_form") do %>
+        <%= render(partial: 'responses/vote', locals: { votedresponse: response }) unless current_user.votedresponse?(response) %>
+      <% end %>
+      <%= div_for(response, class: "votes_count") do %>
+        <%= pluralize(response.users.count, 'vote') %>
+      <% end %>
+    </span>
   </li>
 </ul>
 </li>

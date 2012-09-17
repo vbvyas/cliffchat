@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817075439) do
+ActiveRecord::Schema.define(:version => 20120917061821) do
 
   create_table "affiliations", :force => true do |t|
     t.string   "name"
@@ -103,5 +103,16 @@ ActiveRecord::Schema.define(:version => 20120817075439) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "votedresponse_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["user_id", "votedresponse_id"], :name => "index_votes_on_user_id_and_response_id", :unique => true
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
+  add_index "votes", ["votedresponse_id"], :name => "index_votes_on_response_id"
 
 end
