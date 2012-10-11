@@ -1,3 +1,27 @@
+<script type="text/javascript">
+  $(function() {
+    $('#text').autocomplete({
+      minLength: 2,
+      source: '<%= affiliations_path(:json) %>',
+      focus: function(event, ui) {
+        $('#text').val(ui.item.name);
+        return false;
+      },
+      select: function(event, ui) {
+        $('#text').val(ui.item.name);
+        $('#user_affiliation_id').val(ui.item.id);
+        return false;
+      }
+    })
+    .data("autocomplete")._renderItem = function(ul, item) {
+      return $("<li style='background:#E0E0E0; width:260px'></li>")
+      .data("item.autocomplete", item)
+      .append("<a>" + item.name + "</a>")
+      .appendTo(ul);
+    };
+  });
+</script>
+
 <%= render 'shared/error_messages', :object => f.object %>
 <div class="field">
   <%= f.label :name %><br />
@@ -17,5 +41,6 @@
 </div>
 <div class="field">
   <%= f.label :affiliation_id, "Main affiliation" %><br />
-  <%= f.collection_select :affiliation_id, Affiliation.all, :id, :name, :prompt => "Select Affiliation" %>
+  <input id="text" />
+  <input id="user_affiliation_id" name="user[affiliation_id]" type="hidden" />
 </div>
