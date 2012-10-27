@@ -25,7 +25,7 @@ class MinipostsController < ApplicationController
     respond_to do |format|
       if @minipost.save
         @response = Response.new
-        format.html { redirect_to root_path }
+        format.html { redirect_back_or root_path }
         format.js
       else
         format.html do

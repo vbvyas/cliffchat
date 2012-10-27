@@ -4,7 +4,7 @@
     <ul id="menu">
       <% if signed_in? %>
         <li><%= render 'search/search' %><li>
-        <li><%= link_to "+ Post", new_minipost_path, :class => "header_button" %></li>
+        <!--<li><%= link_to "+ Post", new_minipost_path, :class => "header_button" %></li>-->
         <li><%= link_to current_user.name, "#", class: "header_button" %>
           <ul>
             <li><%= link_to "Profile", current_user, :class => "header_button" %></li>
