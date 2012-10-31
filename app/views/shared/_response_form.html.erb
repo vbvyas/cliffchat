@@ -5,6 +5,6 @@
       <%= f.text_area :content %>
     </div>
     <div class="actions">
-      <%= f.submit "Respond" %>
+      <%= link_to "Respond", "#", class: "btn btn-primary btn-small", onclick: "$('form').submit()" %>
     </div>
 <% end %>

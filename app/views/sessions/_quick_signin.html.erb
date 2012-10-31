@@ -1,16 +1,15 @@
-<div style="background: #663333; border-radius: 17px; padding: 20px; width: 360px">
-	<%= form_for(:session, :url => sessions_path) do |f| %>
-	<div class="field">
-		<%= f.text_field :email,:value => "email address",:class => "hintTextbox",:size => "33"%>
-	</div>
-	<div >
-		<div class="field" style="float: left;">
-			<%= f.password_field :password,:value => "password",:class => "hintTextbox",:size => "25"%>
-		</div>
-		<%= f.submit "Sign in",:style => "margin: 6px;"%> <!-- TODO: Fix this hack for styling signing button-->
-	</div>
+<div style="background: #555555; border-radius: 17px; padding: 20px; width: 230px">
+	<%= form_for(:session, url: sessions_path) do |f| %>
+    <div class="field">
+      <%= f.text_field :email, value: "email address", class: "hintTextbox", size: "33"%>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, value: "password", class: "hintTextbox", size: "25"%>
+    </div>
+    <div class="actions">
+      <%= link_to "Sign In", "#", class: "btn btn-primary", onclick: "$('form').submit()" %>
+    </div>
 	<% end %>
-	<br/>
 	<%= link_to "Forgot your password?", "#" %>
 	<br />
 	<span style="color: white">New?</span> <%= link_to "Sign up for closefeed", signup_path %>

@@ -1,0 +1,304 @@
+@import "bootstrap";
+
+html { overflow-y: scroll; }
+
+body { padding-top: 60px }
+
+section { overflow: auto; }
+
+/*textarea { resize: vertical; }*/
+
+.center { text-align: center; }
+
+.center h1 { margin-bottom: 10px; }
+
+@import "bootstrap-responsive";
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #FFF;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #A0A0A0;
+  text-decoration: none;
+}
+
+header {
+  background: #555555;
+}
+
+#sign {
+  color: #FFF;
+}
+
+#sign:hover {
+  color: #A0A0A0;
+}
+
+/* Hack borrowed from http://criticalthinking.tumblr.com/post/17940560421/making-jquery-ui-look-like-bootstrap */
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  _width: 160px;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+
+  .ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+
+    &.ui-state-hover, &.ui-state-active
+    {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #0088cc;
+      border-radius: 0px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      background-image: none;
+    }
+  }
+}
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}  
+
+footer a:hover { 
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+h1.minipost {
+  margin-bottom: 0.3em;
+}
+
+ul.miniposts {
+  padding-left: 0;
+  margin-left: 0;
+  margin-top: 1em;
+}
+
+ul.miniposts li {
+  text-decoration: none;
+  width: 650px;
+  /*height: 90px;*/
+}
+
+ul.miniposts li.minipost {
+  border-top: 1px solid #CCC;
+  vertical-align: top;
+  padding-top: 10px;
+  list-style: none;
+}
+
+ul.miniposts li.response {
+  margin-left: 1em;
+  background: #EEEEFF;
+}
+
+ul.miniposts li.minipost span.timestamp {
+  font-size: 75%;
+  color: #666;
+}
+
+ul.miniposts li.minipost span.delete {
+  font-size: 75%;
+}
+
+span#minipost_content {
+  display: block;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+  position: absolute;
+}
+
+div.user_info span.miniposts {
+  font-size: 80%;
+}
+
+form.new_minipost {
+  margin-bottom: 2em;
+}
+
+textarea {
+  resize: none;
+}
+
+form.new_minipost textarea {
+  height: 50px;
+  width: 650px;
+  margin-bottom: 0;
+}
+
+form.new_response {
+  margin-left: 1em;
+  margin-top: 5px;
+}
+
+form.new_response textarea {
+  height: 3em;
+  width: 100%;
+}
+
+#left {
+  float: left;
+  margin-right: 10px;
+}
+
+.left {
+  float: left;
+}
+
+#feeditemlist {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#feeditemlist li {
+  list-style: none;
+  text-decoration: none;
+}
+
+#responsescontainer div {
+  margin-left: 1em;
+}
+
+.followedpost_form form {
+  float: left;
+  padding-right: 1em;
+}
+
+.votedresponse_form form {
+  float: left;
+  padding-right: 2px;
+}
+
+.votes_count {
+  font-size: 75%;
+}

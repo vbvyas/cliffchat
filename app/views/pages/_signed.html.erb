@@ -1,15 +1,13 @@
-<table class="front" summary="For signed-in users">
-  <tr>
-    <td class="main">
-      <p><%= Affiliation.find(current_user.affiliation_id).name %> feed</p>
+<div class="row-fluid">
+  <div class="span8">
+      <h3><%= Affiliation.find(current_user.affiliation_id).name %> feed</h3>
       <h4 class="minipost">Say something!</h4>
       <div id="minipost_form">
         <%= render 'shared/minipost_form' %>
       </div>
       <%= render 'shared/feed' %>
-    </td>
-    <td class="sidebar round">
-      <%= render 'shared/user_info' %>
-    </td>
-  </tr>
-</table>
+  </div>
+  <div class="span4">
+    <!--<%= render 'shared/user_info' %>-->
+  </div>
+</div>

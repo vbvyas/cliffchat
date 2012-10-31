@@ -14,7 +14,7 @@
       }
     })
     .data("autocomplete")._renderItem = function(ul, item) {
-      return $("<li style='background:#E0E0E0; width:260px'></li>")
+      return $("<li></li>")
       .data("item.autocomplete", item)
       .append("<a>" + item.name + "</a>")
       .appendTo(ul);
@@ -24,23 +24,23 @@
 
 <%= render 'shared/error_messages', :object => f.object %>
 <div class="field">
-  <%= f.label :name %><br />
+  <%= f.label :name %>
   <%= f.text_field :name %>
 </div>
 <div class="field">
-  <%= f.label :email %><br />
+  <%= f.label :email %>
   <%= f.text_field :email %>
 </div>
 <div class="field">
-  <%= f.label :password %><br />
+  <%= f.label :password %>
   <%= f.password_field :password %>
 </div>
 <div class="field">
-  <%= f.label :password_confirmation, "Confirmation" %><br />
+  <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation %>
 </div>
 <div class="field">
-  <%= f.label :affiliation_id, "Main affiliation" %><br />
-  <input id="text" />
+  <%= f.label :affiliation_id, "Main affiliation" %>
+  <input id="text" type="text" />
   <input id="user_affiliation_id" name="user[affiliation_id]" type="hidden" />
 </div>

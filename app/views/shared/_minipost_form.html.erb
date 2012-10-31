@@ -3,14 +3,14 @@
   <div class="field">
     <%= f.text_area :content %>
   </div>
+  <br/>
   <div class="field">
-    <%= label :minipost, :topics, "Add topics separated by space (optional)" %><br />
-    <%= text_field :minipost, :topics, :value => ""  %>
+    <%= text_field :minipost, :topics, :value => "", :placeholder => "Add topics separated by space" %>
   </div>
   <div>
     <p id="minipost_char_count"></p>
   </div>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= link_to "Post", "#", class: "btn btn-primary", onclick: "$('form').submit()" %>
   </div>
 <% end %>

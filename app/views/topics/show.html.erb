@@ -2,9 +2,7 @@
 <div>
   <%= render 'follow_form' if signed_in? %>
 </div>
-<div id="postcontainer">
-  <ul class="miniposts" id="miniposts" summary="Topic posts">
-    <%= render :partial => 'shared/feed_item', :collection => @miniposts %>
-  </ul>
-  <%= will_paginate @miniposts %>
-</div>
+<ul class="miniposts" id="miniposts" summary="Topic posts">
+  <%= render :partial => 'shared/feed_item', :collection => @miniposts %>
+</ul>
+<%= will_paginate @miniposts %>

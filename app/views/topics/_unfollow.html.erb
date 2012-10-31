@@ -1,5 +1,5 @@
 <%= form_for(current_user.followerships.find_by_topic_id(@topic),
              html: { method: :delete },
              remote: true) do |f| %>
-  <%= f.submit "Unfollow", class: "" %>
+  <%= link_to "Follow", "#", class: "btn btn-primary", onclick: "$('form').submit()" %>
 <% end %>

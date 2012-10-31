@@ -1,8 +1,9 @@
-<h4>Sign up</h4>
-<hr>
+<div class="page-header">
+  <h4>Sign up</h4>
+</div>
 <%= form_for(@user) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= link_to "Sign Up", "#", class: "btn btn-primary", onclick: "$('form').submit()" %>
   </div>
 <% end %>

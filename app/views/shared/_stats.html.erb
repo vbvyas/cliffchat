@@ -6,7 +6,7 @@
   <div class="topics_count">
     <%= pluralize(current_user.topics.count, "topic") %>
   </div>
-  <ul>
+  <ul id="feeditemlist">
     <% current_user.topics.each do |topic| %>
       <li><%= link_to topic.name, topic %></li>
     <% end %>

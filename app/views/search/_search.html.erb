@@ -1,4 +1,3 @@
-<%= form_for :search, :url => 'searchresult', :html => {:class => "search"} do |f| %>
-  <%= f.text_field :text, :label => "search_text" %>
-  <%= f.submit "Search" %>
+<%= form_for :search, url: 'searchresult', html: {class: "navbar-search"} do |f| %>
+  <%= f.text_field :text, label: "search_text", class: "search-query", placeholder: "Search" %>
 <% end %>

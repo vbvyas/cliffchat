@@ -1,32 +1,32 @@
 <li class="response minipost">
-<ul id="feeditemlist">
-  <li id="left">
-    <span id="gravatar">
-      <%= link_to gravatar_for(response.user), response.user %>
-    </span>
-  </li>
-  <li id="right">
-    <%= link_to response.user.name, response.user %>
-    <span class="timestamp">
-      responded <%= time_ago_in_words(response.created_at) %> ago.
-    </span>
-    <span class="content"><%= wrap(response.content) %></span>
-    <% if current_user?(response.user) %>
-      <span class="delete">
-        <%= link_to "Delete", response,
-          :method => :delete,
-          :confirm => "Are you sure?",
-          :title => response.content %>
+  <div class="row-fluid" id="feeditemlist">
+    <div class="span1" id="left">
+      <span id="gravatar">
+        <%= link_to gravatar_for(response.user), response.user %>
       </span>
-    <% end %>
-    <span>
-      <%= div_for(response, class: "votedresponse_form") do %>
-        <%= render(partial: 'responses/vote', locals: { votedresponse: response }) unless current_user.votedresponse?(response) %>
+    </div>
+    <div class="span10" id="right">
+      <%= link_to response.user.name, response.user %>
+      <span class="timestamp">
+        responded <%= time_ago_in_words(response.created_at) %> ago.
+      </span>
+      <span id="minipost_content"><%= wrap(response.content) %></span>
+      <% if current_user?(response.user) %>
+        <span class="delete">
+          <%= link_to "Delete", response,
+            :method => :delete,
+            :confirm => "Are you sure?",
+            :title => response.content %>
+        </span>
       <% end %>
-      <%= div_for(response, class: "votes_count") do %>
-        <%= pluralize(response.users.count, 'vote') %>
-      <% end %>
-    </span>
-  </li>
-</ul>
+      <span>
+        <%= div_for(response, class: "votedresponse_form") do %>
+          <%= render(partial: 'responses/vote', locals: { votedresponse: response }) unless current_user.votedresponse?(response) %>
+        <% end %>
+        <%= div_for(response, class: "votes_count") do %>
+          <%= pluralize(response.users.count, 'like') %>
+        <% end %>
+      </span>
+    </div>
+  </div>
 </li>

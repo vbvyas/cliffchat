@@ -1,10 +1,10 @@
 module ApplicationHelper
   def logo
-    image_tag("logo.png", :alt => "CloseFeed", :class => "round")
+    image_tag("logo.png", :alt => "closefeed", :class => "round")
   end
 
   def title
-    base_title = "CloseFeed"
+    base_title = "closefeed"
     if @title.nil?
       base_title
     else

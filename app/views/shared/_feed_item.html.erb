@@ -1,16 +1,14 @@
 <%= div_for(feed_item) do %>
-<li class="minipost">
-    <ul id="feeditemlist">
-      <li id="left">
-        <span id="gravatar">
+  <li class="minipost">
+    <div class="row-fluid" id="feeditemlist">
+      <div class="span1" id="left">
           <%= link_to gravatar_for(feed_item.user), feed_item.user %>
-        </span>
-      </li>
-      <li id="right">
+      </div>
+      <div class="span10" id="right">
         <span class="user">
           <%= link_to feed_item.user.name, feed_item.user %>
         </span>
-        <span class="content"><%= wrap(feed_item.content) %></span>
+        <span id="minipost_content"><%= wrap(feed_item.content) %></span>
         <span class="timestamp">
           Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
         </span>
@@ -24,25 +22,10 @@
             %>
           </span>
         <% end %>
-        <span>
-          <%= render(partial: 'miniposts/follow_form', locals: {minipost: feed_item}) if signed_in? %>
+        <span class="pull-right">
+          <%= link_to feed_item.responses.empty? ? "Respond" : pluralize(feed_item.responses.count, "response"), feed_item, locals: {minipost: feed_item} %>
         </span>
-        <% unless feed_item.topics.nil? %>
-          <br />
-          <% feed_item.topics.each do |t| %>
-            <%= link_to t.name, t %>
-          <% end %>
-        <% end %>
-      </li>
-    </li>
-    <li><%= link_to feed_item.responses.empty? ? "Respond" : pluralize(feed_item.responses.count, "response"), feed_item, locals: {minipost: feed_item} %></li>
-    <!--
-      <% unless feed_item.responses.empty? %>
-        <%= render :partial => 'responses/response', :collection => feed_item.responses %>
-      <% end %>
-      <li class="minipost">
-      <%= render 'shared/response_form', :minipost => feed_item %>
-      </li>
-      -->
-    </ul>
-  <% end %>
+      </div>
+    </div>
+  </li>
+<% end %>
