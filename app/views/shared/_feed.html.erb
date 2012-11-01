@@ -1,7 +1,7 @@
-<% unless @feed_items.empty? %>
+<% unless current_user.feed.empty? %>
   <div id="postcontainer">
     <ul class="miniposts" id="miniposts" summary="User posts">
-      <%= render :partial => 'shared/feed_item', :collection => @feed_items %>
+      <%= render :partial => 'shared/feed_item', :collection => current_user.feed %>
     </ul>
     <%= will_paginate @feed_items %>
   </div>

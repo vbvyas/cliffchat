@@ -55,12 +55,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    miniposts = []
-    topics.each do |t|
-      miniposts += t.miniposts
-    end
-    miniposts += Minipost.where("affiliation_id = ?", affiliation_id)
-    miniposts.uniq
+    Minipost.where("affiliation_id = ?", affiliation_id)
   end
 
   def following?(topic)

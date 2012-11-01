@@ -14,7 +14,7 @@
         </span>
         <% if current_user?(feed_item.user) %>
           <span class="delete">
-            <%= link_to "Delete", feed_item,
+            <%= link_to "<i class='icon-remove-sign'></i> Delete".html_safe, feed_item,
               :method => :delete,
               :confirm => "Are you sure?",
               :title => feed_item.content,
@@ -22,8 +22,8 @@
             %>
           </span>
         <% end %>
-        <span class="pull-right">
-          <%= link_to feed_item.responses.empty? ? "Respond" : pluralize(feed_item.responses.count, "response"), feed_item, locals: {minipost: feed_item} %>
+        <span class="">
+          <%= link_to ("<i class='icon-comment'></i> " + (feed_item.responses.empty? ? "Respond" : pluralize(feed_item.responses.count, "response"))).html_safe, feed_item, locals: {minipost: feed_item}, id: "response_link" %>
         </span>
       </div>
     </div>

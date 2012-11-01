@@ -280,7 +280,7 @@ form.new_response textarea {
   margin-left: 0;
 }
 
-#feeditemlist li {
+#feeditemlist ul li {
   list-style: none;
   text-decoration: none;
 }
@@ -301,4 +301,16 @@ form.new_response textarea {
 
 .votes_count {
   font-size: 75%;
+}
+
+#response_link {
+  font-size: 80%;
+}
+
+#error_explanation {
+  color: red;
+}
+
+#search_bar {
+  margin-right: 100px;
 }

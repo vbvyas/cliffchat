@@ -21,11 +21,11 @@ class MinipostsController < ApplicationController
       @minipost.topics << topic unless @minipost.topics.include?(topic)
     end
 
-    flash[:success] = "post created!" 
     respond_to do |format|
       if @minipost.save
+        flash[:success] = "Post created!" 
         @response = Response.new
-        format.html { redirect_back_or root_path }
+        format.html { redirect_to root_path }
         format.js
       else
         format.html do

@@ -3,7 +3,7 @@
   <nav>
     <ul class="nav pull-right" id="menu">
       <% if signed_in? %>
-        <li class="pull-left"><%= render 'search/search' %><li>
+        <li id="search_bar" class="pull-left"><%= render 'search/search' %><li>
         <!--<li><%= link_to "+ Post", new_minipost_path, :class => "header_button" %></li>-->
         <div class="dropdown">
         <li><%= link_to current_user.name, "#", id: "sign" %>
