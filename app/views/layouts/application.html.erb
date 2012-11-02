@@ -2,11 +2,8 @@
 <html>
   <head>
     <title><%= @title %></title>
-    <style type="text/css">
-      body { padding-top: 60px; }
-    </style>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/stylesheets' %>
+    <%= render 'layouts/stylesheets', media: 'all' %>
     <%= render 'layouts/javascripts' %>
   </head>
   <body>
