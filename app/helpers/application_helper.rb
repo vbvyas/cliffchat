@@ -1,6 +1,5 @@
 module ApplicationHelper
   def logo
-    #image_tag("logo.png", :alt => "closefeed", :class => "round")
     "closefeed"
   end
 
