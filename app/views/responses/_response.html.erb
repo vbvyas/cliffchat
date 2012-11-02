@@ -15,9 +15,11 @@
         <% if current_user?(response.user) %>
           <span class="delete">
             <%= link_to "<i class='icon-remove-sign'></i> Delete".html_safe, response,
-              :method => :delete,
-              :confirm => "Are you sure?",
-              :title => response.content %>
+              method: :delete,
+              confirm: "Are you sure?",
+              title: response.content,
+              remote: true
+            %>
           </span>
         <% end %>
         <span>

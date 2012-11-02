@@ -39,5 +39,5 @@
   <% unless @minipost.responses.empty? %>
     <%= render partial: 'responses/response', collection: @minipost.responses %>
   <% end %>
-  <li><%= render 'shared/response_form', minipost: @minipost %></li>
 </ul>
+<div id="response_form"><%= render 'shared/response_form', minipost: @minipost %></div>
