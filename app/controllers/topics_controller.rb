@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @miniposts = @topic.miniposts.paginate(:page => params[:page])
+    @miniposts = @topic.miniposts.where("affiliation_id = ?", current_user.affiliation_id).paginate(:page => params[:page])
     @miniposts.each do |minipost|
       @responses = minipost.responses
     end

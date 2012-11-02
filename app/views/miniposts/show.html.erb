@@ -15,7 +15,7 @@
           </span>
           <% if current_user?(@minipost.user) %>
             <span class="delete">
-              <%= link_to "Delete", @minipost,
+              <%= link_to "<i class='icon-remove-sign'></i> Delete".html_safe, @minipost,
                 method: :delete,
                 confirm: "Are you sure?",
                 title: @minipost.content,

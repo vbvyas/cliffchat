@@ -1,5 +1,5 @@
 <%= form_for(current_user.interests.find_by_followedpost_id(followedpost ||= @minipost),
              html: { method: :delete },
              remote: true) do |f| %>
-  <%= link_to "Unfollow", "#", class: "btn btn-primary btn-mini", onclick: "$('form').submit()" %>
+  <%= f.submit "Unfollow", class: "btn btn-primary btn-mini" %>
 <% end %>

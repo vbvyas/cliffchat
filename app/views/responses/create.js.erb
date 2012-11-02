@@ -1,0 +1,2 @@
+$('#miniposts li:last').prev().append("<%= escape_javascript(render(partial: 'responses/response', locals: {response: @response})) %>");
+$('#new_response').reset();

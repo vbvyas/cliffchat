@@ -17,7 +17,7 @@ class MinipostsController < ApplicationController
     topics = params[:minipost][:topics].split
     topics.each do |t|
       t.downcase!
-      topic = Topic.find_by_name(t) || Topic.create(:name => t)
+      topic = Topic.find_or_create_by_name(t)
       @minipost.topics << topic unless @minipost.topics.include?(topic)
     end
 

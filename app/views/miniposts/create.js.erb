@@ -1,2 +1,2 @@
-$('#miniposts').prepend("<%= escape_javascript(render(:partial => 'shared/feed_item', :locals => {:feed_item => @minipost})) %>");
+$('ul#miniposts').prepend("<%= escape_javascript(render(:partial => 'shared/feed_item', :locals => {:feed_item => @minipost})) %>");
 $('#minipost_form > form')[0].reset();

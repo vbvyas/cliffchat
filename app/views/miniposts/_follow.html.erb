@@ -1,5 +1,5 @@
 <%= form_for(current_user.interests.build(followedpost_id: (followedpost ||= @minipost).id),
              remote: true) do |f| %>
   <div><%= f.hidden_field :followedpost_id %></div>
-  <%= link_to "Follow", "#", class: "btn btn-primary btn-mini", onclick: "$('form').submit()" %>
+  <%= f.submit "Follow", class: "btn btn-primary btn-mini" %>
 <% end %>

@@ -1,10 +1,10 @@
-<%= form_for @response do |f| %>
+<%= form_for(@response, remote: true) do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>
     <%= f.hidden_field :minipost_id, {:value => minipost.id} %>
     <div class="field">
       <%= f.text_area :content %>
     </div>
     <div class="actions">
-      <%= link_to "Respond", "#", class: "btn btn-primary btn-small", onclick: "$('form').submit()" %>
+      <%= f.submit "Respond", class: "btn btn-primary btn-small" %>
     </div>
 <% end %>
