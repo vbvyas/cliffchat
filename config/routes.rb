@@ -22,6 +22,7 @@ Closefeed::Application.routes.draw do
   match '/privacystatement', :to => 'pages#privacystatement'
   match '/followus', :to => 'pages#followus'
   match '/faq', :to => 'pages#faq'
+  match '/contact', to: 'pages#contact'
 
   root :to => 'pages#home'
 
