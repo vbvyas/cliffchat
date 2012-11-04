@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate
-  before_filter :correct_user
+  before_filter :authenticate, only: [:show, :index, :edit, :update]
+  before_filter :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
