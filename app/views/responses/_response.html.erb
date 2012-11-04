@@ -11,7 +11,6 @@
         <span class="timestamp">
           responded <%= time_ago_in_words(response.created_at) %> ago.
         </span>
-        <span id="minipost_content"><%= wrap(response.content) %></span>
         <% if current_user?(response.user) %>
           <span class="delete">
             <%= link_to "<i class='icon-remove-sign'></i> Delete".html_safe, response,
@@ -22,12 +21,13 @@
             %>
           </span>
         <% end %>
+        <span id="minipost_content"><%= wrap(response.content) %></span>
         <span>
-          <%= div_for(response, class: "votedresponse_form") do %>
+          <%= div_for(response, class: "votedresponse_form votes_count") do %>
             <%= render(partial: 'responses/vote', locals: { votedresponse: response }) unless current_user.votedresponse?(response) %>
           <% end %>
-          <%= div_for(response, class: "votes_count") do %>
-            <%= pluralize(response.users.count, 'like') %>
+          <%= div_for(response, class: "votes_count", id: "left") do %>
+            <%= response.users.empty? ? "like" : pluralize(response.users.count, 'like') %>
           <% end %>
         </span>
       </div>

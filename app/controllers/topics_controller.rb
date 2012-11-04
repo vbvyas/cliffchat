@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_filter :authenticate
 
   def show
     @topic = Topic.find(params[:id])
@@ -8,9 +9,5 @@ class TopicsController < ApplicationController
     end
     @title = @topic.name
     @response = Response.new
-  end
-
-  def index
-    @topics = Topic.all
   end
 end

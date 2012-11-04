@@ -29,4 +29,8 @@ class PagesController < ApplicationController
   def faq
     @title = 'closefeed - FAQ'
   end
+
+  def contact
+    @title = 'closefeed - Contact'
+  end
 end

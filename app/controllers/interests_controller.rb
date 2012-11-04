@@ -1,4 +1,5 @@
 class InterestsController < ApplicationController
+  before_filter :authenticate
 
   def create
     @minipost = Minipost.find(params[:interest][:followedpost_id])

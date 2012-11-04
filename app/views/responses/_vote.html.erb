@@ -1,6 +1,8 @@
-<%= form_for(current_user.votes.build(votedresponse_id: (votedresponse ||= @response).id),
+<%= form_for(current_user.votes.build(votedresponse_id: (votedresponse ||= @response).id), id: "votedresponse_form",
             remote: true) do |f| %>
   <div><%= f.hidden_field :votedresponse_id %></div>
   <!-- Icons from http://glyphicons.com/ -->
-  <%= link_to "<i class='icon-thumbs-up'></i>".html_safe, "#", onclick: "$('form').submit()" %>
+  <%= button_tag type: :submit, class: "btn btn-mini" do %>
+    <i class='icon-thumbs-up'></i>
+  <% end %>
 <% end %>

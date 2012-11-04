@@ -1,4 +1,5 @@
 class FollowershipsController < ApplicationController
+  before_filter :authenticate
 
   def create
     @topic = Topic.find(params[:followership][:topic_id])

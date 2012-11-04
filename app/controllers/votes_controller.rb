@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_filter :authenticate
 
   def create
     @response = Response.find(params[:vote][:votedresponse_id])
