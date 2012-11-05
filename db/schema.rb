@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917061821) do
+ActiveRecord::Schema.define(:version => 20121104081042) do
 
   create_table "affiliations", :force => true do |t|
     t.string   "name"
@@ -100,6 +100,9 @@ ActiveRecord::Schema.define(:version => 20120917061821) do
     t.string   "encrypted_password"
     t.string   "salt"
     t.integer  "affiliation_id"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

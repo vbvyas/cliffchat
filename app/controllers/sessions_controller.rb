@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       @title = "Sign in"
       render :new
     else
-      sign_in user
+      sign_in(user)
       redirect_back_or root_path
     end
   end
