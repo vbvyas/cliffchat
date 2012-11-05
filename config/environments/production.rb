@@ -59,4 +59,6 @@ Closefeed::Application.configure do
   config.active_support.deprecation = :notify
   
   config.assets.initialize_on_precompile = false
+  
+  config.action_mailer.default_url_options = { host: "www.closefeed.com" }
 end

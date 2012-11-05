@@ -9,6 +9,14 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
+  <div class="field">
+    <span id="left">
+      <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    </span>
+    <span>
+      <%= label_tag :remember_me %>
+    </span>
+  </div>
   <div class="actions">
     <%= link_to "Sign In", "#", class: "btn btn-primary", onclick: "$('form').submit()" %>
   </div>
