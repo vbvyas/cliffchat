@@ -2,10 +2,13 @@
 	<div style="margin: 0; padding: 40px 0 20px 0; text-align: center">
 		<span id="landing_title" style="font-weight: bold; font-size: 3em">closefeed</span>
 		<br />
-		<span id="tag_line" style="font-style: italic"> learn about your academics. get your questions answered. </span>
+		<span id="tag_line" style="font-style: italic"> learn from local experts. get your questions answered. </span>
 	</div>
 	<div class="row-fluid">
-			<div class="span8"><%= render 'pages/landing_info' %></div>
-			<div class="span4"><%= render 'sessions/quick_signin' %><!-- TODO render 'users/quick_new' --></div>
-	</div>
+    <div class="span8">
+      <%= render 'pages/landing_info' %><br/>
+      <%= image_tag 'LandingPageCartoon.png', class: 'img-rounded center' %>
+    </div>
+    <div class="span4"><%= render 'sessions/quick_signin' %><!-- TODO render 'users/quick_new' --></div>
+  </div>
 </div>
