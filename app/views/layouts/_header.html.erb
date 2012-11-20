@@ -5,16 +5,17 @@
       <% if signed_in? %>
         <li id="search_bar" class="pull-left"><%= render 'search/search' %><li>
         <!--<li><%= link_to "+ Post", new_minipost_path, :class => "header_button" %></li>-->
-        <div class="dropdown">
-        <li><%= link_to current_user.name, "#", id: "sign" %>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li><%= link_to "Profile", current_user %></li>
-            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-            <li class="divider"></li>
-            <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
-          </ul>
+        <li id="user_menu">
+          <div class="dropdown">
+            <%= link_to (current_user.name + " <b class='caret'></b>").html_safe, "#", id: "sign", class: "dropdown-toggle", 'data-toggle' => "dropdown" %>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
+            </ul>
+          </div>
         </li>
-        </div>
       <% else %>
         <li><%= link_to "Sign Up", signup_path, id: "sign" %></li>
         <li><%= link_to "Sign In", signin_path, id: "sign" %></li>

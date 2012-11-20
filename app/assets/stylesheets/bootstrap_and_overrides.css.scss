@@ -38,6 +38,19 @@ header {
 
 #sign:hover {
   color: #A0A0A0;
+  text-decoration: none;
+}
+
+.nav .dropdown-toggle .caret {
+  color: #FFF;
+  border-bottom-color: #FFF;
+  border-top-color: #FFF;
+}
+
+.nav .dropdown-toggle:hover .caret {
+  color: #A0A0A0;
+  border-bottom-color: #A0A0A0;
+  border-top-color: #A0A0A0;
 }
 
 /* Hack borrowed from http://criticalthinking.tumblr.com/post/17940560421/making-jquery-ui-look-like-bootstrap */
@@ -255,9 +268,17 @@ form.new_response textarea {
 }
 
 #search_bar {
-  margin-right: 100px;
+  margin-right: 150px;
 }
 
 img.center {
   align: middle;
+}
+
+#user_menu {
+  margin-right: 60px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-size: 1.2em;
+  font-weight: bold;
 }

@@ -15,14 +15,5 @@ $(document).ready(function() {
   $('#minipost_content').keydown(function() {
     $('#minipost_char_count').text((150 - $('#minipost_content').val().length) + " characters left");
     });
-
-  $('#menu li').hover(
-    function () {
-      $('ul', this).stop().slideDown(100);
-    },
-    function () {
-      $('ul', this).stop().slideUp(100);
-    }
-  );
 });
 
