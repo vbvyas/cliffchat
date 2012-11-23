@@ -1,10 +1,13 @@
 class PagesController < ApplicationController
   def home    
     if signed_in?
-      @title = :Home
+      @title = 'closefeed - Home'
       @minipost = Minipost.new
-      @feed_items =  current_user.feed.paginate(:page => params[:page]) 
-      @response = Response.new
+      @feed_items =  current_user.feed.paginate(per_page: 20, page: params[:page]) 
+
+      if request.xhr?
+        render partial: 'shared/feed_item', collection: @feed_items
+      end
     else
       @title = 'Welcome to closefeed'
     end

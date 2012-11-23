@@ -5,6 +5,11 @@ class MinipostsController < ApplicationController
   def show
     @minipost = Minipost.find(params[:id])
     @response = Response.new
+    @responses = @minipost.responses.paginate(per_page: 20, page: params[:page])
+
+    if request.xhr?
+      render partial: 'responses/response', collection: @responses
+    end
   end
 
   def new
