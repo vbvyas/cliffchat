@@ -1,8 +1,11 @@
-<h1><%= @topic.name.capitalize %></h1>
+<h3><%= @topic.name.capitalize %></h3>
 <div>
   <%= render 'follow_form' if signed_in? %>
 </div>
-<ul class="miniposts" id="miniposts" summary="Topic posts">
-  <%= render :partial => 'shared/feed_item', :collection => @miniposts %>
+<ul class="miniposts" id="miniposts" summary="User posts">
+    <div id="postcontainer">
+      <%= render :partial => 'shared/feed_item', :collection => @feed_items %>
+      <%= will_paginate @feed_items %>
+      <%= pageless @feed_items.total_pages, '?escape=false' %>
+    </div>
 </ul>
-<%= will_paginate @miniposts %>

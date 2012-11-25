@@ -1,4 +1,6 @@
-
-<ul class="users">
-  <%= render @topics %>
+<h3>Topics Followed</h3>
+<ul class="unstyled">
+  <% current_user.topics.each do |topic| %>
+    <li><%= link_to topic.name, topic %></li>
+  <% end %>
 </ul>

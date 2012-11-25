@@ -1,14 +1,9 @@
 <div class="stats">
   Following: <br/>
   <div class="posts_count">
-    <%= pluralize(current_user.followedposts.count, "post") %><br/>
+    <%= link_to pluralize(current_user.followedposts.count, "post"), interests_path %><br/>
   </div>
   <div class="topics_count">
-    <%= pluralize(current_user.topics.count, "topic") %>
+    <%= link_to pluralize(current_user.topics.count, "topic"), topics_path %>
   </div>
-  <ul id="feeditemlist">
-    <% current_user.topics.each do |topic| %>
-      <li><%= link_to topic.name, topic %></li>
-    <% end %>
-  </ul>
 </div>

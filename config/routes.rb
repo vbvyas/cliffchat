@@ -7,7 +7,7 @@ Closefeed::Application.routes.draw do
   resources :search, :only => [:new]
   resources :topics
   resources :followerships, only: [:create, :destroy]
-  resources :interests, only: [:create, :destroy]
+  resources :interests, only: [:show, :index, :create, :destroy]
   resources :votes, only: [:create]
   resources :affiliations, only: [:show, :index]
   resources :password_resets
