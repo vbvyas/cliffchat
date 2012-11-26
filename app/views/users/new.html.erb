@@ -7,6 +7,6 @@
 <%= form_for(@user) do |f| %>
   <%= render 'fields', :f => f %>
   <div class="actions">
-    <%= link_to "Sign Up", "#", class: "btn btn-primary", onclick: "$('form').submit()" %>
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
   </div>
 <% end %>

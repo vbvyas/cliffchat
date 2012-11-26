@@ -40,11 +40,9 @@
     </li>
   <% end %>
   <div id="response_form"><%= render 'shared/response_form', minipost: @minipost %></div>
-  <% unless @minipost.responses.empty? %>
-    <div id="postcontainer">
-      <%= render partial: 'responses/response', collection: @responses %>
-      <%= will_paginate @responses %>
-      <%= pageless @responses.total_pages, '?escape=false' %>
-    </div>
-  <% end %>
+  <div id="postcontainer">
+    <%= render partial: 'responses/response', collection: @responses %>
+    <%= will_paginate @responses %>
+    <%= pageless @responses.total_pages, '?escape=false' %>
+  </div>
 </ul>
