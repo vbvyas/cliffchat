@@ -12,6 +12,7 @@ webrat.log
 # Ignore other uneeded files.
 doc/
 *.swp
+*.swo
 *~
 .project
 .DS_Store

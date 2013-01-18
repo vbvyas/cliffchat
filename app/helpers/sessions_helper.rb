@@ -36,7 +36,10 @@ module SessionsHelper
 
   def deny_access
     store_location
-    redirect_to signin_path, :notice => "Please sign in to access this page."
+    respond_to do |format|
+      format.html { redirect_to signin_path, :notice => "Please sign in to access this page." }
+      format.js { render js: "window.location = '#{signin_path}'" }
+    end
   end
 
   def redirect_back_or(default)

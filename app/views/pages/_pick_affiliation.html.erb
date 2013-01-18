@@ -1,0 +1,12 @@
+<script type="text/javascript">
+  function navigate(value) {
+    document.location.href = 'affiliations/' + value;
+  }
+</script>
+<%= form_tag affiliation_path(:id) do %>
+  <div class="field">
+    <%= label_tag :affiliation, "Select your university to see what questions are being asked on your campus" %>
+    <%= select_tag :id, options_from_collection_for_select(Affiliation.all, :id, :name), class: "input-xxlarge", onchange: "navigate(this.value)" %><br />
+    <small>Washington and British Columbia universities only for time being</small>
+  </div>
+<% end %>
