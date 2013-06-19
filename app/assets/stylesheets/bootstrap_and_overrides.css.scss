@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 html { overflow-y: scroll; }
 
@@ -9,8 +10,6 @@ section { overflow: auto; }
 .center { text-align: center; }
 
 .center h1 { margin-bottom: 10px; }
-
-@import "bootstrap-responsive";
 
 #logo {
   float: left;
