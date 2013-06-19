@@ -7,6 +7,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+log/*.log
+tmp/
 webrat.log
 
 # Ignore other uneeded files.
