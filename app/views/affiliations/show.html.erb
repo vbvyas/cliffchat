@@ -1,6 +1,5 @@
 <div class="row-fluid">
   <div class="span8">
-    <%= tag(:div, id: "affiliation", data: { name: @affiliation.name }) %>
     <h3><%= @affiliation.name %> feed</h3>
     <h4 class="minipost">Say something!</h4>
     <div id="minipost_form">
@@ -9,6 +8,7 @@
     <%= render 'shared/feed' %>
   </div>
 </div>
+<%= tag(:div, id: "affiliation", data: { name: @affiliation.name }) %>
 <script type="text/javascript">
   var affiliation = $('#affiliation').attr('data-name');
   mixpanel.track("Affiliation", { "Name": affiliation });
