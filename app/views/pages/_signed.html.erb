@@ -1,16 +1,20 @@
-<script type="text/javascript">
-  mixpanel.track("Logged in");
-</script>
 <div class="row-fluid">
   <div class="span8">
-      <h3><%= Affiliation.find(current_user.affiliation_id).name %> feed</h3>
-      <h4 class="minipost">Say something!</h4>
-      <div id="minipost_form">
-        <%= render 'shared/minipost_form' %>
-      </div>
-      <%= render 'shared/feed' %>
+    <h3><%= Affiliation.find(current_user.affiliation_id).name %> feed</h3>
+    <h4 class="minipost">Say something!</h4>
+    <div id="minipost_form">
+      <%= render 'shared/minipost_form' %>
+    </div>
+    <%= render 'shared/feed' %>
   </div>
   <div class="span4">
     <%= render 'shared/user_info' %>
   </div>
 </div>
+<%= tag(:div, id: "affiliation", data: { affiliation: Affiliation.find(current_user.affiliation_id).name, name: current_user.name, email: current_user.email }) %>
+<script type="text/javascript">
+  var affiliation = $('#affiliation').attr('data-affiliation');
+  var name = $('#affiliation').attr('data-name');
+  var email = $('#affiliation').attr('data-email');
+  mixpanel.track("Logged in", { "Affiliation": affiliation, "Name": name, "Email": email });
+</script>

@@ -1,14 +1,15 @@
-<script type="text/javascript">
-  mixpanel.track("Affiliation posts");
-</script>
 <div class="row-fluid">
   <div class="span8">
-      <h3><%= @affiliation.name %> feed</h3>
-      <h4 class="minipost">Say something!</h4>
-      <div id="minipost_form">
-        <%= render 'shared/minipost_form' %>
-      </div>
-      <%= render 'shared/feed' %>
+    <%= tag(:div, id: "affiliation", data: { name: @affiliation.name }) %>
+    <h3><%= @affiliation.name %> feed</h3>
+    <h4 class="minipost">Say something!</h4>
+    <div id="minipost_form">
+      <%= render 'shared/minipost_form' %>
+    </div>
+    <%= render 'shared/feed' %>
   </div>
 </div>
-
+<script type="text/javascript">
+  var affiliation = $('#affiliation').attr('data-name');
+  mixpanel.track("Affiliation", { "Name": affiliation });
+</script>
