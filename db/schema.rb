@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104081042) do
+ActiveRecord::Schema.define(:version => 20130802093516) do
 
   create_table "affiliations", :force => true do |t|
     t.string   "name"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20121104081042) do
   add_index "interests", ["user_id"], :name => "index_interests_on_user_id"
 
   create_table "miniposts", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20121104081042) do
   add_index "miniposts_topics", ["topic_id"], :name => "index_miniposts_topics_on_topic_id"
 
   create_table "responses", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "minipost_id"
     t.integer  "user_id"
     t.datetime "created_at"

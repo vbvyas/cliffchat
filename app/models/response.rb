@@ -6,7 +6,7 @@ class Response < ActiveRecord::Base
   has_many :votes, foreign_key: "votedresponse_id", dependent: :destroy
   has_many :users, through: :votes
 
-  validates :content, :presence => true, :length => { :maximum => 150 }
+  validates :content, :presence => true, :length => { :maximum => 1000 }
   validates :user_id, :presence => true
 
   default_scope :order => 'responses.created_at'
