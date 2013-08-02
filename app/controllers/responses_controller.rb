@@ -6,9 +6,19 @@ class ResponsesController < ApplicationController
     @response = current_user.responses.build(params[:response])
     minipost = Minipost.find(params[:response][:minipost_id])
     minipost.responses << @response
+
+    topics = @response.content.split
+    topics.each do |t|
+      t.downcase!
+      t.sub!(/[[:punct:]]*$/, '')
+      if t.length > 1 and t.first == '#'
+        t.sub!('#', '')
+        topic = Topic.find_or_create_by_name(t)
+      end
+    end
+
     respond_to do |format|
       if @response.save
-        flash[:success] = "Response created!"
         format.html { redirect_back_or root_path }
         format.js
       else

@@ -19,16 +19,19 @@ class MinipostsController < ApplicationController
   def create
     @minipost = current_user.miniposts.build(params[:minipost])
     @minipost.affiliation_id = current_user.affiliation_id
-    topics = params[:minipost][:topics].split
+    topics = @minipost.content.split
     topics.each do |t|
       t.downcase!
-      topic = Topic.find_or_create_by_name(t)
-      @minipost.topics << topic unless @minipost.topics.include?(topic)
+      t.sub!(/[[:punct:]]*$/, '')
+      if t.length > 1 and t.first == '#'
+        t.sub!('#', '')
+        topic = Topic.find_or_create_by_name(t)
+        @minipost.topics << topic unless @minipost.topics.include?(topic)
+      end
     end
 
     respond_to do |format|
       if @minipost.save
-        flash[:success] = "Post created!" 
         @response = Response.new
         format.html { redirect_to root_path }
         format.js
