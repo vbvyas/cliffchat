@@ -3,16 +3,19 @@ module MinipostsHelper
   def wrap(content)
     contents = content.split
     contents.each do |c|
-      if c.first == '#'
-        c.sub!(/[[:punct:]]*$/, '')
-        topic = c.downcase
-        topic.sub!('#', '')
-        if Topic.find_by_name(topic)
-          t = Topic.find_by_name(topic)
-          content.sub!(c, link_to(c, t, class: 'delete'))
+      if c =~ /^#\w+/
+        trimmed = c.sub(/[[:punct:]]*$/, '')
+        trimmed.sub!('#', '')
+        trimmed = trimmed.split(/[[:punct:]]/).first
+        unless trimmed.blank?
+          t = trimmed.downcase
+          topic = Topic.find_by_name(t)
+          trimmed = "#" + trimmed
+          c.sub!(trimmed, link_to(trimmed, topic, class: 'delete'))
         end
       end
     end
+    content = contents.join(' ')
     sanitize(raw(content.split.map{ |s| wrap_long_string(s) }.join(' ')))
   end
 

@@ -21,12 +21,15 @@ class MinipostsController < ApplicationController
     @minipost.affiliation_id = current_user.affiliation_id
     topics = @minipost.content.split
     topics.each do |t|
-      t.downcase!
-      t.sub!(/[[:punct:]]*$/, '')
-      if t.length > 1 and t.first == '#'
+      if t =~ /^#\w+/
+        t.downcase!
+        t.sub!(/[[:punct:]]*$/, '')
         t.sub!('#', '')
-        topic = Topic.find_or_create_by_name(t)
-        @minipost.topics << topic unless @minipost.topics.include?(topic)
+        t = t.split(/[[:punct:]]/).first
+        unless t.blank?
+          topic = Topic.find_or_create_by_name(t)
+          @minipost.topics << topic unless @minipost.topics.include?(topic)
+        end
       end
     end
 

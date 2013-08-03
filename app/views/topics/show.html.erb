@@ -10,5 +10,6 @@
     </div>
 </ul>
 <script type='text/javascript'>
-  mixpanel.track("Tag", "Name": $('h3').text());
+  var topic = $('h3').text();
+  mixpanel.track("Tag", { "Name": topic });
 </script>
