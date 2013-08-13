@@ -6,7 +6,9 @@
 <%= form_tag affiliation_path(:id) do %>
   <div class="field">
     <%= label_tag :affiliation, "Select your college/university to see questions" %>
-    <%= select_tag :id, options_from_collection_for_select(Affiliation.order("name"), :id, :name), class: "input-xxlarge", onchange: "navigate(this.value)" %><br />
+    <%= select_tag :id,
+      options_from_collection_for_select(Affiliation.order("name"), :id, :name),
+      class: "input-xxlarge", onchange: "navigate(this.value)" %><br />
     <small>Washington and British Columbia universities only for time being</small>
   </div>
 <% end %>

@@ -4,6 +4,14 @@
     <%= link_to pluralize(current_user.followedposts.count, "post"), interests_path %><br/>
   </div>
   <div class="topics_count">
-    <%= link_to pluralize(current_user.topics.count, "topic"), topics_path %>
+    <%= link_to pluralize(current_user.topics.count, "topic"), topics_path %><br/>
+  </div>
+  <div class="following_count">
+    <%= link_to pluralize(current_user.followed_users.count, "user"), following_user_path(current_user) %><br/>
+  </div>
+
+  Followed: <br/>
+  <div class="followers_count">
+    <%= link_to pluralize(current_user.followers.count, "follower"), followers_user_path(current_user) %><br/>
   </div>
 </div>

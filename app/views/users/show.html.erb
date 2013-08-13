@@ -5,6 +5,9 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <div>
+        <%= render 'follow_form' if signed_in? %>
+      </div>
       <% unless @user.miniposts.empty? %>
         <div id="postcontainer">
           <ul class="miniposts" id="miniposts" summary="User posts">

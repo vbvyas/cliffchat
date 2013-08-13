@@ -1,0 +1,2 @@
+$("#follow_form").html("<%= escape_javascript(render(partial: 'users/follow')) %>")
+$(".posts_count").html("<%= escape_javascript(pluralize(current_user.followed_users.count, "post")) %>")

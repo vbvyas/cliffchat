@@ -20,6 +20,7 @@ class AffiliationsController < ApplicationController
       redirect_to root_path
     else
       @feed_items = @affiliation.miniposts.paginate(per_page: 20, page: params[:page])
+      @title = @affiliation.name
 
       if request.xhr?
         render partial: 'shared/feed_item', collection: @feed_items
