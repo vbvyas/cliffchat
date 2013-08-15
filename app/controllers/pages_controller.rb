@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home    
     if signed_in?
-      @title = 'closefeed - Home'
+      @title = 'cliffchat - Home'
       @minipost = Minipost.new
       @feed_items =  current_user.feed.paginate(per_page: 20, page: params[:page]) 
 
@@ -9,31 +9,31 @@ class PagesController < ApplicationController
         render partial: 'shared/feed_item', collection: @feed_items
       end
     else
-      @title = 'Welcome to closefeed'
+      @title = 'Welcome to cliffchat'
     end
   end
 
   def about
-    @title = 'About closefeed'
+    @title = 'About cliffchat'
   end
 
   def termsofuse
-    @title = 'closefeed - Terms of Use'
+    @title = 'cliffchat - Terms of Use'
   end
 
   def privacystatement
-    @title = 'closefeed - Privacy Statement'
+    @title = 'cliffchat - Privacy Statement'
   end  
   
   def followus
-    @title = 'closefeed - Follow Us'
+    @title = 'cliffchat - Follow Us'
   end
   
   def faq
-    @title = 'closefeed - FAQ'
+    @title = 'cliffchat - FAQ'
   end
 
   def contact
-    @title = 'closefeed - Contact'
+    @title = 'cliffchat - Contact'
   end
 end
