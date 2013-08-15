@@ -1,10 +1,10 @@
 module ApplicationHelper
   def logo
-    "closefeed"
+    "cliffchat"
   end
 
   def title
-    base_title = "closefeed"
+    base_title = "cliffchat"
     if @title.nil?
       base_title
     else
