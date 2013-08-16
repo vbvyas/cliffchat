@@ -16,7 +16,8 @@ module MinipostsHelper
       end
     end
     content = contents.join(' ')
-    sanitize(raw(content.split.map{ |s| wrap_long_string(s) }.join(' ')))
+    san_content = sanitize(content)
+    auto_link(san_content)
   end
 
   private
