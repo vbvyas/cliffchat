@@ -11,7 +11,8 @@ gem 'rails_autolink', '~> 1.1.0'
 
 gem 'pg'
 gem 'execjs'
-gem 'therubyracer'
+# gem 'therubyracer'
+gem 'sass-rails',   '~> 3.1'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
@@ -28,7 +29,6 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '~> 2.1.0.1'
