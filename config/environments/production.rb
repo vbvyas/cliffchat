@@ -60,5 +60,5 @@ Closefeed::Application.configure do
   
   config.assets.initialize_on_precompile = false
   
-  config.action_mailer.default_url_options = { host: "www.closefeed.com" }
+  config.action_mailer.default_url_options = { host: "www.cliffchat.com" }
 end
