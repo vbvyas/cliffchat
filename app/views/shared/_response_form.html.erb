@@ -2,7 +2,7 @@
     <%= render 'shared/error_messages', :object => f.object %>
     <%= f.hidden_field :minipost_id, {:value => minipost.id} %>
     <div class="field">
-      <%= f.text_area :content %>
+      <%= f.text_area :content, class: 'row-fluid' %>
     </div>
     <div class="actions">
       <%= f.submit "Respond", class: "btn btn-primary btn-small" %>

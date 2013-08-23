@@ -1,5 +1,4 @@
 @import "bootstrap";
-@import "bootstrap-responsive";
 
 html { overflow-y: scroll; }
 
@@ -149,7 +148,7 @@ ul.miniposts {
 
 ul.miniposts li {
   text-decoration: none;
-  width: 650px;
+  max-width: 650px;
   /*height: 90px;*/
 }
 
@@ -179,7 +178,7 @@ span#minipost_content {
 }
 
 #response_form {
-  width: 650px;
+  max-width: 650px;
 }
 
 div.user_info img {
@@ -208,7 +207,7 @@ textarea {
 
 form.new_minipost textarea {
   height: 50px;
-  width: 650px;
+  max-width: 650px;
   margin-bottom: 0;
 }
 
@@ -286,3 +285,5 @@ img.center {
   font-size: 1.2em;
   font-weight: bold;
 }
+
+@import "bootstrap-responsive";

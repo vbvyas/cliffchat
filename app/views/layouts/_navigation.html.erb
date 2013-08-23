@@ -1,0 +1,37 @@
+<div class='navbar navbar-inverse navbar-fixed-top'>
+  <div class='navbar-inner'>
+    <div class='container'>
+      <a class='btn btn-navbar' data-toggle='collapse' data-target='.nav-collapse'>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </a>
+
+      <%= link_to logo, root_path, id: "logo" %> 
+
+      <div class='nav-collapse collapse'>
+        <ul class="nav pull-right" id="menu">
+          <% if signed_in? %>
+            <li id="search_bar" class="pull-left"><%= render 'search/search' %><li>
+            <!--<li><%= link_to "+ Post", new_minipost_path, :class => "header_button" %></li>-->
+            <li id="user_menu">
+              <div class="dropdown">
+                <%= link_to (current_user.name + " <b class='caret'></b>").html_safe, "#", id: "sign", class: "dropdown-toggle", 'data-toggle' => "dropdown" %>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Sign Out", signout_path, method: :delete %></li>
+                </ul>
+              </div>
+            </li>
+          <% else %>
+            <li><%= link_to "Sign Up", signup_path, id: "sign" %></li>
+            <li><%= link_to "Sign In", signin_path, id: "sign" %></li>
+          <% end %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
