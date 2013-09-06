@@ -9,6 +9,6 @@
     <%= select_tag :id,
       options_from_collection_for_select(Affiliation.order("name"), :id, :name),
       class: "input-xxlarge", onchange: "navigate(this.value)" %><br />
-    <small>Washington and British Columbia universities only for time being</small>
+    <small>Select universities only for time being</small>
   </div>
 <% end %>
