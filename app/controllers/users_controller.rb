@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to CloseFeed!"
+      flash[:success] = "Welcome to cliffchat!"
       redirect_to root_path
     else
       @title = "Sign up"
