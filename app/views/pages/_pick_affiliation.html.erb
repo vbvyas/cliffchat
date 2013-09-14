@@ -5,7 +5,7 @@
 </script>
 <%= form_tag affiliation_path(:id) do %>
   <div class="field">
-    <%= label_tag :affiliation, "Select your college/university to see questions" %>
+    <%= label_tag :affiliation, "Checkout posts from your college/university" %>
     <%= select_tag :id,
       options_from_collection_for_select(Affiliation.order("name"), :id, :name),
       class: "input-xxlarge", onchange: "navigate(this.value)" %><br />
