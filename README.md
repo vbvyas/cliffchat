@@ -4,6 +4,10 @@
 
 Cliffchat is a place where you get your questions answered, answer others questions, and help each other out.
 
+### Requirements:
+
+  Requires postgresql
+
 ### Install:
 
     git clone https://github.com/vbvyas/cliffchat.git
