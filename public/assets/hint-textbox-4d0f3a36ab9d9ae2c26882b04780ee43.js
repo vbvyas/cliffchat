@@ -1,5 +1,0 @@
-// Script by Drew Noakes
-// http://drewnoakes.com
-// 14 Dec 2006 - Initial release
-// 08 Jun 2010 - Added support for password textboxes
-function initHintTextboxes(){var e=document.getElementsByTagName("input");for(i=0;i<e.length;i++){var t=e[i];if(t.type!="text"&&t.type!="password")continue;t.className.indexOf(HintClass)!=-1&&(t.hintText=t.value,t.className=HintClass,t.onfocus=onHintTextboxFocus,t.onblur=onHintTextboxBlur)}}function onHintTextboxFocus(){var e=this;e.value.trim()==e.hintText&&(e.value="",e.className=HintActiveClass)}function onHintTextboxBlur(){var e=this;e.value.trim().length==0&&(e.value=e.hintText,e.className=HintClass)}var HintClass="hintTextbox",HintActiveClass="hintTextboxActive";String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")},window.onload=initHintTextboxes;
