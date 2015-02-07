@@ -1,4 +1,4 @@
-# [http://www.cliffchat.com](cliffchat)
+# [cliffchat][http://www.cliffchat.com]
 
 [http://www.cliffchat.com](http://www.cliffchat.com)
 
