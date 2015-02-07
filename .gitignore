@@ -1,6 +1,9 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore assets
+/public/assets
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
@@ -12,10 +15,11 @@ log/*.log
 tmp/
 webrat.log
 
-# Ignore other uneeded files.
+# Ignore other unneeded files.
 doc/
 *.swp
 *.swo
+*.swn
 *~
 .project
 .DS_Store
