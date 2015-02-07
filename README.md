@@ -7,6 +7,9 @@ Cliffchat is a place where you get your questions answered, answer others questi
 ### Install:
 
     git clone https://github.com/vbvyas/cliffchat.git
+    cd cliffchat
+    bundle install
+    bundle exec rake db:migrate
 
 ### Run:
 
@@ -14,4 +17,4 @@ Cliffchat is a place where you get your questions answered, answer others questi
 
 ### Navigate to:
 
-    [http://localhost:3000](http://localhost:3000)
+  [http://localhost:3000](http://localhost:3000)
