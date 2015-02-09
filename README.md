@@ -8,6 +8,13 @@ Cliffchat is a place where you get your questions answered, answer others questi
 
   Requires postgresql
 
+  To use sqllite. Replace this in your Gemfile:
+  gem 'pg' => gem 'sqlite3'
+
+  In your config/database.yml replace the adapter, and database:
+  postgresql => sqlite3
+  cliffchat_development => db/development.sqlite3
+
 ### Install:
 
     git clone https://github.com/vbvyas/cliffchat.git
